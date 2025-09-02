@@ -1,0 +1,29 @@
+<div class="editor" *ngIf="note; else emptyState">
+  <div class="header">
+    <input
+      class="title"
+      [(ngModel)]="title"
+      (ngModelChange)="onFieldChange()"
+      placeholder="Note title..."
+      aria-label="Note title"
+    />
+    <div class="timestamps" *ngIf="note">
+      <span>Updated: {{ note.updatedAt || note.createdAt | date:'short' }}</span>
+    </div>
+  </div>
+
+  <textarea
+    #contentArea
+    class="content"
+    [(ngModel)]="content"
+    (ngModelChange)="onFieldChange()"
+    placeholder="Start typing your note..."
+    aria-label="Note content"
+  ></textarea>
+</div>
+
+<ng-template #emptyState>
+  <div class="empty">
+    <p>Select a note from the list or create a new one.</p>
+  </div>
+</ng-template>

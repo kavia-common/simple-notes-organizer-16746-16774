@@ -1,59 +1,37 @@
-# Angular
+# Simple Notes Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Modern, minimalistic, light-themed UI for a simple notes organizer.
 
-## Development server
+- Features: Create, Edit, Delete, View list, Search notes
+- Layout: Toolbar (quick actions) + Sidebar (notes list) + Main Editor
+- Palette: primary `#1976d2`, secondary `#424242`, accent `#ffca28`
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Run locally
 
 ```bash
-ng generate component component-name
+npm install
+npm start
+# open http://localhost:3000
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The app expects a backend REST API (see API_CONTRACT.md). You can override the API base url at runtime:
+```html
+<script>window.__NOTES_API_BASE_URL__ = 'http://localhost:8080';</script>
+```
+
+## Build
 
 ```bash
-ng generate --help
+npm run build
 ```
 
-## Building
+## Structure
+- app/components: toolbar, sidebar, editor
+- app/pages/notes: page composing the layout and wiring actions
+- app/services/notes.service.ts: REST API calls
+- app/models/note.model.ts: Note interface
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Notes
+- All @angular/* package versions are aligned to avoid build issues.
+- The UI performs client-side search; replace with server search if available.
+- See API_CONTRACT.md for expected endpoints.

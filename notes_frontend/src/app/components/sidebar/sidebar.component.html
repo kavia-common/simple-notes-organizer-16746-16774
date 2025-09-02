@@ -1,0 +1,23 @@
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <span class="label">Notes</span>
+    <span class="muted" *ngIf="loading">Loading...</span>
+    <span class="muted" *ngIf="!loading && notes.length === 0">No notes</span>
+  </div>
+
+  <ul class="list" *ngIf="notes.length > 0">
+    <li
+      class="item"
+      *ngFor="let n of notes; trackBy: trackById"
+      [class.active]="n.id === selectedId"
+      (click)="onSelect(n)"
+    >
+      <div class="title">{{ n.title || 'Untitled' }}</div>
+      <div class="meta">
+        <span class="date">
+          {{ n.updatedAt || n.createdAt | date:'short' }}
+        </span>
+      </div>
+    </li>
+  </ul>
+</aside>

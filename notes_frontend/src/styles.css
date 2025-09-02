@@ -1,5 +1,7 @@
 /* Global styles for minimalistic design */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,6 +9,17 @@
 
 html, body {
   height: 100%;
-  background-color: #ffffff;
+  background-color: var(--color-bg, #ffffff);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-text, #1f2937);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, textarea {
+  font-family: inherit;
+  font-size: 14px;
 }

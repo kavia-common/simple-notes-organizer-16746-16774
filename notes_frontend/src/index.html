@@ -2,10 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Angular</title>
+  <title>Simple Notes</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1976d2" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    :root {
+      --color-primary: #1976d2;
+      --color-secondary: #424242;
+      --color-accent: #ffca28;
+      --color-bg: #ffffff;
+      --color-surface: #f7f9fc;
+      --color-border: #e5eaf2;
+      --color-text: #1f2937;
+      --color-text-muted: #6b7280;
+    }
+  </style>
+  <script>
+    // Optional runtime configuration. Define __NOTES_API_BASE_URL__ on the window to override API base.
+    // Example: window.__NOTES_API_BASE_URL__ = 'http://localhost:8080';
+  </script>
 </head>
 <body>
   <app-root></app-root>

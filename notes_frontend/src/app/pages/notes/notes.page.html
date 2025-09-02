@@ -1,0 +1,25 @@
+<app-toolbar
+  [searchQuery]="searchQuery"
+  (searchQueryChange)="onSearchChange($event)"
+  (create)="onCreate()"
+  (save)="onSave()"
+  (delete)="onDelete()"
+></app-toolbar>
+
+<div class="layout">
+  <app-sidebar
+    [notes]="filteredNotes"
+    [selectedId]="selected?.id"
+    [loading]="loading"
+    [searchQuery]="searchQuery"
+    (select)="onSelect($event)"
+  ></app-sidebar>
+
+  <main class="main">
+    <app-editor
+      [note]="selected"
+      [loading]="saving"
+      (change)="onEditorChange($event)"
+    ></app-editor>
+  </main>
+</div>

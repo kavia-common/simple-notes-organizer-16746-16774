@@ -1,0 +1,20 @@
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: calc(100vh - 56px);
+}
+
+.main {
+  padding: 16px;
+  overflow: auto;
+  background: var(--color-bg);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  app-sidebar {
+    display: none;
+  }
+}
